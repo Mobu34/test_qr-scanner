@@ -8,8 +8,8 @@ function App() {
   const [error, setError] = useState();
   const [change, setChange] = useState(false);
 
-  const handleChange = () => {
-    setResult(result);
+  const handleChange = (data) => {
+    setResult(data);
     change(true);
   };
 
