@@ -9,8 +9,10 @@ function App() {
   const [change, setChange] = useState(false);
 
   const handleChange = (data) => {
-    setResult(data);
-    change(true);
+    if (data !== null) {
+      setResult(data);
+      change(true);
+    }
   };
 
   return (
