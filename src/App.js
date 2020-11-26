@@ -11,7 +11,7 @@ function App() {
   const handleChange = (data) => {
     if (data !== null) {
       setResult(data);
-      change(true);
+      setChange(true);
     }
   };
 
