@@ -6,19 +6,26 @@ import QrReader from "react-qr-scanner";
 function App() {
   const [result, setResult] = useState();
   const [error, setError] = useState();
+  const [change, setChange] = useState(false);
 
-  // console.log(result);
+  const handleChange = () => {
+    setResult(data);
+    change(true);
+  };
 
   return (
     <div>
-      <QrReader
-        onScan={(data) => {
-          setResult(data);
-        }}
-        onError={(err) => setError(err)}
-      />
-      <p>{`Résultat : ${result}`}</p>
-      <p>{`Error : ${error}`}</p>
+      {change ? (
+        <>
+          <p>{`QR CODE SCANNÉ, il correspond à ${result}`}</p>
+        </>
+      ) : (
+        <>
+          <QrReader onScan={handleChange} onError={(err) => setError(err)} />
+          <p>{`Résultat : ${result}`}</p>
+          <p>{`Error : ${error}`}</p>
+        </>
+      )}
     </div>
   );
 }
