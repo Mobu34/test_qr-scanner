@@ -5,6 +5,7 @@ import QrReader from "react-qr-scanner";
 
 function App() {
   const [result, setResult] = useState();
+  const [error, setError] = useState();
 
   // console.log(result);
 
@@ -12,10 +13,12 @@ function App() {
     <div>
       <QrReader
         onScan={(data) => {
-          console.log(data);
+          setResult(data);
         }}
-        onError={(error) => console.log(error)}
+        onError={(err) => setError(err)}
       />
+      <p>{`Résultat : ${result}`}</p>
+      <p>{`Error : ${error}`}</p>
     </div>
   );
 }
